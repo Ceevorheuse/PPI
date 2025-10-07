@@ -1,0 +1,20 @@
+div.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div.deputado {
+    border: 1px solid rgb(10, 7, 20);
+    box-shadow: 2px 1px 1px #000;
+    background-color: rgb(231, 231, 255);
+    width: 200px;
+    text-align: center;
+    margin: 2px;
+}
+
+.foto {
+    height: 150px;
+    width: auto;
+
+}

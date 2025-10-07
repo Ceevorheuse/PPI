@@ -1,0 +1,22 @@
+<h1>Buscar deputados por nome</h1>
+
+<form [formGroup]="formBusca" (ngSubmit)="buscarPorNome()">
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" formControlName="nome" placeholder="Ex: Maria" />
+    <div *ngIf="formBusca.controls.nome.invalid && formBusca.controls.nome.touched">
+      <small>Nome obrigatório. Mínimo 2 caracteres.</small>
+    </div>
+    <button type="submit" [disabled]="formBusca.invalid || loading">Buscar</button>
+</form>
+
+<div *ngIf="loading">Carregando...</div>
+
+<ul *ngIf="!loading && deputados.length">
+  <li *ngFor="let d of deputados">
+    <strong>{{ d.nome }}</strong> — {{ d.siglaPartido }} ({{ d.siglaUf }})
+  </li>
+</ul>
+
+<div *ngIf="!loading && !deputados.length && formBusca.valid">
+  <p>Nenhum deputado encontrado.</p>
+</div>
